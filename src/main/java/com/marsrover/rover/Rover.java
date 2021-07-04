@@ -41,16 +41,16 @@ public class Rover {
 
         switch (direction) {
             case NORTH:
-                coordinate.setY(coordinate.getY() + 1);
+                coordinate.increaseYByOne();
                 break;
             case EAST:
-                coordinate.setX(coordinate.getX() + 1);
+                coordinate.increaseXByOne();
                 break;
             case SOUTH:
-                coordinate.setY(coordinate.getY() - 1);
+                coordinate.decreaseYByOne();
                 break;
             case WEST:
-                coordinate.setX(coordinate.getX() - 1);
+                coordinate.decreaseXByOne();
                 break;
         }
     }
