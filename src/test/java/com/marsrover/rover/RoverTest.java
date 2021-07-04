@@ -22,10 +22,10 @@ public class RoverTest {
 
     @ParameterizedTest
     @MethodSource("provideDirectionAndExpectedCoordinateForMoveForwardAndBackward")
-    void moveWithCommandsShouldMoveForwardInRoverDirectionWhenCommandIsF(Command command, Direction direction, Coordinate expectedCoordinate) {
+    void moveWithCommandsShouldMoveRoverWhenCommandIsFOrB(Command command, Direction direction, Coordinate expectedCoordinate) {
 
         rover.setDirection(direction);
-        rover.moveWithCommands(command.toString());
+        rover.moveWithCommands(String.valueOf(command.getCommand()));
 
         assertEquals(direction, rover.getDirection());
         assertEquals(expectedCoordinate.getX(), rover.getCoordinate().getX());
@@ -43,5 +43,28 @@ public class RoverTest {
                 Arguments.of(Command.BACKWARD, Direction.EAST, new Coordinate(rover.getCoordinate().getX() - 1, rover.getCoordinate().getY())),
                 Arguments.of(Command.BACKWARD, Direction.SOUTH, new Coordinate(rover.getCoordinate().getX(), rover.getCoordinate().getY() + 1)),
                 Arguments.of(Command.BACKWARD, Direction.WEST, new Coordinate(rover.getCoordinate().getX() + 1, rover.getCoordinate().getY())));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRoverAndExpectedDirectionForTurnLeftAndRight")
+    void moveWithCommandsShouldTurnWhenCommandIsLOrR(Command command, Direction roverDirection, Direction expectedDirectionAfterTurn) {
+
+        rover.setDirection(roverDirection);
+        rover.moveWithCommands(String.valueOf(command.getCommand()));
+
+        assertEquals(expectedDirectionAfterTurn, rover.getDirection());
+    }
+
+    private static Stream<Arguments> provideRoverAndExpectedDirectionForTurnLeftAndRight(){
+
+        return Stream.of(
+                Arguments.of(Command.LEFT, Direction.NORTH, Direction.WEST),
+                Arguments.of(Command.LEFT, Direction.EAST, Direction.NORTH),
+                Arguments.of(Command.LEFT, Direction.SOUTH, Direction.EAST),
+                Arguments.of(Command.LEFT, Direction.WEST, Direction.SOUTH),
+                Arguments.of(Command.RIGHT, Direction.NORTH, Direction.EAST),
+                Arguments.of(Command.RIGHT, Direction.EAST, Direction.SOUTH),
+                Arguments.of(Command.RIGHT, Direction.SOUTH, Direction.WEST),
+                Arguments.of(Command.RIGHT, Direction.WEST, Direction.NORTH));
     }
 }
