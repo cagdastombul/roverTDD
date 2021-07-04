@@ -32,5 +32,7 @@ public class Coordinate {
     }
 
     public void increaseYByOne(){
+
+        y++;
     }
 }
