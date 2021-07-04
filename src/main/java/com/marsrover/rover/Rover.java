@@ -28,5 +28,30 @@ public class Rover {
 
     public void moveWithCommands(String commands){
 
+        for (char command : commands.toCharArray()) {
+
+            command = Character.toUpperCase(command);
+
+            if (command == Command.FORWARD.getCommand())
+                move(direction);
+        }
+    }
+
+    private void move(Direction direction) {
+
+        switch (direction) {
+            case NORTH:
+                coordinate.setY(coordinate.getY() + 1);
+                break;
+            case EAST:
+                coordinate.setX(coordinate.getX() + 1);
+                break;
+            case SOUTH:
+                coordinate.setY(coordinate.getY() - 1);
+                break;
+            case WEST:
+                coordinate.setX(coordinate.getX() - 1);
+                break;
+        }
     }
 }

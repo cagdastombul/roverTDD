@@ -13,7 +13,7 @@ public enum Command {
         this.command = command;
     }
 
-    public int getCommand() {
+    public char getCommand() {
         return command;
     }
 }
