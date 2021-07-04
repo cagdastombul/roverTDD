@@ -38,6 +38,6 @@ public class Coordinate {
 
     public void decreaseXByOne(){
 
-        x++;
+        x--;
     }
 }
