@@ -43,5 +43,6 @@ public class Coordinate {
 
     public void decreaseYByOne(){
 
+        y--;
     }
 }
