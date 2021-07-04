@@ -40,4 +40,8 @@ public class Coordinate {
 
         x--;
     }
+
+    public void decreaseYByOne(){
+
+    }
 }

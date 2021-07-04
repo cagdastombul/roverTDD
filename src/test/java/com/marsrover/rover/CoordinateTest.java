@@ -45,4 +45,14 @@ public class CoordinateTest {
 
         assertEquals(initialX - 1, coordinate.getX());
     }
+
+    @Test
+    void decreaseYByOneShouldSubtractOneFromY() {
+
+        int initialY = coordinate.getY();
+
+        coordinate.decreaseYByOne();
+
+        assertEquals(initialY - 1, coordinate.getY());
+    }
 }
