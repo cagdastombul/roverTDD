@@ -28,5 +28,6 @@ public class Coordinate {
 
     public void increaseXByOne(){
 
+        x++;
     }
 }
