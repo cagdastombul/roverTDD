@@ -34,8 +34,12 @@ public class Rover {
 
             if (command == Command.FORWARD.getCommand())
                 move(direction);
+
             else if (command == Command.BACKWARD.getCommand())
                 move(direction.getBackwardDirection());
+
+            else if (command == Command.LEFT.getCommand() || command == Command.RIGHT.getCommand())
+                changeDirection(command);
         }
     }
 
@@ -55,5 +59,14 @@ public class Rover {
                 coordinate.decreaseXByOne();
                 break;
         }
+    }
+
+    private void changeDirection(char command) {
+
+        if (command == Command.LEFT.getCommand())
+            direction = Direction.values()[(4 + direction.getDirectionId() - 1) % 4];
+
+        else if (command == Command.RIGHT.getCommand())
+            direction = Direction.values()[(4 + direction.getDirectionId() + 1) % 4];
     }
 }

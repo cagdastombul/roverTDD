@@ -27,22 +27,18 @@ public class Coordinate {
     }
 
     public void increaseXByOne(){
-
         x++;
     }
 
     public void increaseYByOne(){
-
         y++;
     }
 
     public void decreaseXByOne(){
-
         x--;
     }
 
     public void decreaseYByOne(){
-
         y--;
     }
 }
