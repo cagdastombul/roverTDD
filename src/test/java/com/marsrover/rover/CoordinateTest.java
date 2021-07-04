@@ -35,4 +35,14 @@ public class CoordinateTest {
 
         assertEquals(initialY + 1, coordinate.getY());
     }
+
+    @Test
+    void decreaseXByOneShouldSubtractOneFromX() {
+
+        int initialX = coordinate.getX();
+
+        coordinate.decreaseXByOne();
+
+        assertEquals(initialX - 1, coordinate.getX());
+    }
 }

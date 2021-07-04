@@ -35,4 +35,9 @@ public class Coordinate {
 
         y++;
     }
+
+    public void decreaseXByOne(){
+
+        x++;
+    }
 }
