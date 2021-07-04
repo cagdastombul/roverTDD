@@ -25,4 +25,14 @@ public class CoordinateTest {
 
         assertEquals(initialX + 1, coordinate.getX());
     }
+
+    @Test
+    void increaseYByOneShouldAddOneToY() {
+
+        int initialY = coordinate.getY();
+
+        coordinate.increaseYByOne();
+
+        assertEquals(initialY + 1, coordinate.getY());
+    }
 }

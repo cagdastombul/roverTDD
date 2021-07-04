@@ -30,4 +30,7 @@ public class Coordinate {
 
         x++;
     }
+
+    public void increaseYByOne(){
+    }
 }
