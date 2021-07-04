@@ -34,6 +34,8 @@ public class Rover {
 
             if (command == Command.FORWARD.getCommand())
                 move(direction);
+            else if (command == Command.BACKWARD.getCommand())
+                move(direction.getBackwardDirection());
         }
     }
 
