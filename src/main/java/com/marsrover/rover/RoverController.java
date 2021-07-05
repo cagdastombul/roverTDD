@@ -11,6 +11,9 @@ public class RoverController {
         if (!Direction.isValidDirection(moveRoverApiRequest.getInitialDirection()))
             return ErrorMessageConstants.INVALID_DIRECTION;
 
+        if (!Command.areValidCommands(moveRoverApiRequest.getCommands()))
+            return ErrorMessageConstants.INVALID_COMMAND;
+
         return null;
     }
 }

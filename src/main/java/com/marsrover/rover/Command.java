@@ -1,5 +1,7 @@
 package com.marsrover.rover;
 
+import java.util.stream.Stream;
+
 public enum Command {
 
     FORWARD('F'),
@@ -15,5 +17,18 @@ public enum Command {
 
     public char getCommand() {
         return command;
+    }
+
+    public static boolean areValidCommands(String commands){
+
+        for (char command : commands.toCharArray()) {
+
+            boolean isValid = Stream.of(values()).anyMatch(c -> c.getCommand() == (command));
+
+            if (!isValid)
+                return false;
+        }
+
+        return true;
     }
 }
