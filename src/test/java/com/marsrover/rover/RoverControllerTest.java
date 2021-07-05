@@ -42,4 +42,12 @@ public class RoverControllerTest {
 
         assertEquals(ErrorMessageConstants.INVALID_COMMAND, response);
     }
+
+    @Test
+    void moveRoverShouldReturnCoordinateAndDirectionAfterMove() {
+
+        String response = roverController.moveRover(moveRoverApiRequest);
+
+        assertEquals("(6, 4) NORTH", response);
+    }
 }
