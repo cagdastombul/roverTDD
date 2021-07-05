@@ -1,13 +1,17 @@
 package com.marsrover.rover;
 
+import java.util.stream.Stream;
+
 public class Rover {
 
     private Coordinate coordinate;
     private Direction direction;
+    private boolean isCollided;
 
     public Rover(Coordinate coordinate, Direction direction) {
         this.coordinate = coordinate;
         this.direction = direction;
+        isCollided = false;
     }
 
     public Coordinate getCoordinate() {
@@ -33,17 +37,20 @@ public class Rover {
             command = Character.toUpperCase(command);
 
             if (command == Command.FORWARD.getCommand())
-                move(direction);
+                move(direction, planet);
 
             else if (command == Command.BACKWARD.getCommand())
-                move(direction.getBackwardDirection());
+                move(direction.getBackwardDirection(), planet);
 
             else if (command == Command.LEFT.getCommand() || command == Command.RIGHT.getCommand())
                 changeDirection(command);
+
+            if (isCollided)
+                break;
         }
     }
 
-    private void move(Direction direction) {
+    private void move(Direction direction, Planet planet) {
 
         switch (direction) {
             case NORTH:
@@ -59,6 +66,25 @@ public class Rover {
                 coordinate.decreaseXByOne();
                 break;
         }
+
+        if (isCollided(planet)){
+            move(direction.getBackwardDirection(), planet);
+            isCollided = true;
+        }
+    }
+
+    private boolean isCollided(Planet planet){
+
+        for (Obstacle obstacle : planet.getObstacleList()){
+
+            boolean isCollided = Stream.of(obstacle).anyMatch(o -> o.getCoordinate().getX() == coordinate.getX()
+                                                                && o.getCoordinate().getY() == coordinate.getY());
+
+            if(isCollided)
+                return true;
+        }
+
+        return false;
     }
 
     private void changeDirection(char command) {
@@ -72,6 +98,9 @@ public class Rover {
 
     public String getCurrentCoordinateAndDirection(){
 
-        return "(" + coordinate.getX() + ", " + coordinate.getY() + ") " + direction;
+        if (isCollided)
+            return "(" + coordinate.getX() + ", " + coordinate.getY() + ") " + direction + " STOPPED";
+        else
+            return "(" + coordinate.getX() + ", " + coordinate.getY() + ") " + direction;
     }
 }

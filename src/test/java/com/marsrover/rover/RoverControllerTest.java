@@ -21,6 +21,7 @@ public class RoverControllerTest {
         moveRoverApiRequest.setInitialDirection(Direction.EAST.toString());
         moveRoverApiRequest.setInitialCoordinate(new Coordinate(4, 2));
         moveRoverApiRequest.setCommands("FLFFFRFLB");
+        moveRoverApiRequest.setPlanet(new Planet());
     }
 
     @Test
