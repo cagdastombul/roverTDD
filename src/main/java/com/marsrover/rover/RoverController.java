@@ -17,6 +17,6 @@ public class RoverController {
         Rover rover = new Rover(moveRoverApiRequest.getInitialCoordinate(), Direction.valueOf(moveRoverApiRequest.getInitialDirection()));
         rover.moveWithCommands(moveRoverApiRequest.getCommands());
 
-        return "(" + rover.getCoordinate().getX() + ", " + rover.getCoordinate().getY() + ") " + rover.getDirection();
+        return rover.getCurrentCoordinateAndDirection();
     }
 }

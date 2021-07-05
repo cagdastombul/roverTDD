@@ -72,6 +72,6 @@ public class Rover {
 
     public String getCurrentCoordinateAndDirection(){
 
-        return null;
+        return "(" + coordinate.getX() + ", " + coordinate.getY() + ") " + direction;
     }
 }
