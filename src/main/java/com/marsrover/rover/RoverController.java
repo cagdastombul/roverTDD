@@ -14,6 +14,9 @@ public class RoverController {
         if (!Command.areValidCommands(moveRoverApiRequest.getCommands()))
             return ErrorMessageConstants.INVALID_COMMAND;
 
-        return null;
+        Rover rover = new Rover(moveRoverApiRequest.getInitialCoordinate(), Direction.valueOf(moveRoverApiRequest.getInitialDirection()));
+        rover.moveWithCommands(moveRoverApiRequest.getCommands());
+
+        return "(" + rover.getCoordinate().getX() + ", " + rover.getCoordinate().getY() + ") " + rover.getDirection();
     }
 }
