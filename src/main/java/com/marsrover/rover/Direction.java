@@ -20,4 +20,15 @@ public enum Direction {
     public int getDirectionId() {
         return directionId;
     }
+
+    public static boolean isValidDirection(String direction){
+
+        try {
+            Direction.valueOf(direction);
+            return true;
+
+        } catch (IllegalArgumentException ex) {
+            return false;
+        }
+    }
 }

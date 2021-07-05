@@ -2,7 +2,7 @@ package com.marsrover.rover;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
+import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class RoverControllerTest {
 
-    @Mock
+    @InjectMocks
     RoverController roverController;
 
     MoveRoverApiRequest moveRoverApiRequest;
