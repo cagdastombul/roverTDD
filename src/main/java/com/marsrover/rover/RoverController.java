@@ -15,7 +15,7 @@ public class RoverController {
             return ErrorMessageConstants.INVALID_COMMAND;
 
         Rover rover = new Rover(moveRoverApiRequest.getInitialCoordinate(), Direction.valueOf(moveRoverApiRequest.getInitialDirection()));
-        rover.moveWithCommands(moveRoverApiRequest.getCommands());
+        rover.moveWithCommands(moveRoverApiRequest.getCommands(), new Planet());
 
         return rover.getCurrentCoordinateAndDirection();
     }

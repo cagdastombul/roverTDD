@@ -26,7 +26,7 @@ public class Rover {
         this.direction = direction;
     }
 
-    public void moveWithCommands(String commands){
+    public void moveWithCommands(String commands, Planet planet){
 
         for (char command : commands.toCharArray()) {
 
