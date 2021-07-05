@@ -32,4 +32,14 @@ public class RoverControllerTest {
 
         assertEquals(ErrorMessageConstants.INVALID_DIRECTION, response);
     }
+
+    @Test
+    void moveRoverShouldReturnErrorMessageWhenACommandIsInvalid() {
+
+        moveRoverApiRequest.setCommands("A");
+
+        String response = roverController.moveRover(moveRoverApiRequest);
+
+        assertEquals(ErrorMessageConstants.INVALID_COMMAND, response);
+    }
 }
