@@ -69,4 +69,9 @@ public class Rover {
         else if (command == Command.RIGHT.getCommand())
             direction = Direction.values()[(4 + direction.getDirectionId() + 1) % 4];
     }
+
+    public String getCurrentCoordinateAndDirection(){
+
+        return null;
+    }
 }
