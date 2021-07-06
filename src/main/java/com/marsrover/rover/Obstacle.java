@@ -4,6 +4,9 @@ public class Obstacle {
 
     private Coordinate coordinate;
 
+    public Obstacle(){
+    }
+
     public Obstacle(Coordinate coordinate) {
         this.coordinate = coordinate;
     }
